@@ -3,12 +3,12 @@ import { getDatabase, ref, push } from "firebase/database";
 
 const Result = (props) => {
 
-    const database = getDatabase(firebase);
-    const dbRef = ref(database);
+    // const database = getDatabase(firebase);
+    // const dbRef = ref(database);
 
     return (
         <>
-            <p>{props.count}</p>
+            <p className="number">{props.count}</p>
         </>
         
     )

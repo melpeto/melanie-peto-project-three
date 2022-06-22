@@ -3,6 +3,7 @@ import firebase from './firebase.js';
 import { getDatabase, ref, onValue, set} from 'firebase/database';
 import { Link, useParams } from "react-router-dom";
 import Result from "./Result.js";
+import Header from "./Header.js";
 
 const DisplayNewPoll = () => {
 
@@ -17,10 +18,7 @@ const DisplayNewPoll = () => {
     const countARef = ref(database, `/${pollNumber}/countA`);
     const countBRef = ref(database, `/${pollNumber}/countB`);
 
-    //on initial render I want to take whats in the database and show it, for the poll that was just created
     useEffect(() => {
-        // const database = getDatabase(firebase);
-        // const dbRef = ref(database, `/${pollNumber}`);
         onValue(dbRef, (response) => {
             const data = response.val();
             setPoll(data);
@@ -36,8 +34,6 @@ const DisplayNewPoll = () => {
     const handleVoteA = () => {
         const newCountValueA = (countValueA + 1);
         setCountValueA(newCountValueA);
-        // const database = getDatabase(firebase);
-        // const countARef = ref(database, `/${pollNumber}/countA`);
         set(countARef, newCountValueA);
     }
 
@@ -49,15 +45,31 @@ const DisplayNewPoll = () => {
 
     return (
         <>
-        <p>{poll.userQuestion}</p>
-        <button onClick={handleVoteA}>{poll.responseA}</button>
-        <Result count={countValueA} thisPoll={poll}/>
-        <button onClick={handleVoteB}>{poll.responseB}</button>
-        <Result count={countValueB}/>
+        <Header />
 
-        <Link to="/">Make a new poll</Link>
+        <h2 className="userQ">{poll.userQuestion}</h2>
 
-        <Link to="/allpolls">See all active polls</Link>
+        <section className="results wrapper">
+
+            <div>
+                <button className="votingBtn" onClick={handleVoteA}>{poll.responseA}</button>
+                <Result count={countValueA}/>
+            </div>
+
+            <div>
+                <button className="votingBtn" onClick={handleVoteB}>{poll.responseB}</button>
+                <Result count={countValueB}/>
+            </div>
+
+        </section>
+
+        <div className="regButton">
+            <Link to="/">Make a new poll</Link>
+        </div>
+
+        <div className="regButton">
+            <Link to="/allpolls">See all active polls</Link>
+        </div>
         </>
     )
 }

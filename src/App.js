@@ -1,27 +1,29 @@
 import './App.css';
 import { Routes, Route} from 'react-router-dom';
+import Header from './Header';
 import Creation from './Creation';
 import DisplayNewPoll from './DisplayNewPoll';
 import AllPolls from './AllPolls';
+import Footer from './Footer';
 
 function App() {
 
   return (
     <div className="App">
-      <>
+
         <Routes>
           <Route path="/" element={
             <div className="App">
-              <h1>project 3 voting app</h1>
+              <Header />
               <Creation />
             </div>
           } />
           <Route path="/:pollNumber" element={<DisplayNewPoll/>}/>
           <Route path="/allpolls" element={<AllPolls />}/>
         </Routes>
-      </>
-      
-      
+
+        <Footer />
+
     </div>
   );
 }
