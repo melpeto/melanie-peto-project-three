@@ -29,7 +29,7 @@ const DisplayNewPoll = () => {
         onValue(countBRef, (response) => {
             setCountValueB(response.val())
         });
-    }, [])
+    }, [dbRef, countARef, countBRef])
 
     const handleVoteA = () => {
         const newCountValueA = (countValueA + 1);

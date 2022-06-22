@@ -36,6 +36,9 @@ const Creation = () => {
         setUserQuestion('');
         setResponseA('');
         setResponseB('');
+        //netlify won't deploy unless I use setCountA and setCountB
+        setCountA(countA); 
+        setCountB(countB);  
         setIsDisplayed(true);
     }
 
