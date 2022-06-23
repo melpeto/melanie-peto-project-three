@@ -8,38 +8,42 @@ import MakeAPollButton from "./MakeAPollButton.js";
 
 const DisplayNewPoll = () => {
 
-    const { pollNumber } = useParams();
-
     const [countValueA, setCountValueA] = useState(0);
     const [countValueB, setCountValueB] = useState(0);
     const [poll, setPoll] = useState([]);
 
-    const database = getDatabase(firebase);
-    const dbRef = ref(database, `/${pollNumber}`);
-    const countARef = ref(database, `/${pollNumber}/countA`);
-    const countBRef = ref(database, `/${pollNumber}/countB`);
+    const { pollNumber } = useParams();
 
     useEffect(() => {
+        const database = getDatabase(firebase);
+        const dbRef = ref(database, `/${pollNumber}`);
         onValue(dbRef, (response) => {
             const data = response.val();
             setPoll(data);
         });
+        const countARef = ref(database, `/${pollNumber}/countA`);
         onValue(countARef, (response) => {
             setCountValueA(response.val())
         });
+        const countBRef = ref(database, `/${pollNumber}/countB`);
         onValue(countBRef, (response) => {
             setCountValueB(response.val())
         });
-    }, [])
+    }, [pollNumber])
+    // had to include dependency of pollNumber in order to make netlify deployment work
 
     const handleVoteA = () => {
         const newCountValueA = (countValueA + 1);
+        const database = getDatabase(firebase);
+        const countARef = ref(database, `/${pollNumber}/countA`);
         setCountValueA(newCountValueA);
         set(countARef, newCountValueA);
     }
 
     const handleVoteB = () => {
         const newCountValueB = (countValueB + 1);
+        const database = getDatabase(firebase);
+        const countBRef = ref(database, `/${pollNumber}/countB`);
         setCountValueB(newCountValueB);
         set(countBRef, newCountValueB);
     }
