@@ -1,8 +1,20 @@
+import SeeAllPolls from "./SeeAllPolls";
+
 const Header = () => {
     return (
-        <header>
-            <h1 className='wrapper'>Poll App</h1>
+        <header className='wrapper'>
+
+            {/* <MakeAPollButton /> */}
+
+            <SeeAllPolls />
+
+            <h1>Poll App</h1>
             <p className="pun">Where do reindeer vote? <span>The North Poll!</span></p>
+
+            {/* <div className="regButton">
+                <Link to="/allpolls">See all active polls</Link>
+            </div> */}
+
         </header>
     )
 }
