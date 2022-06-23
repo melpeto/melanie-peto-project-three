@@ -2,8 +2,8 @@ const Footer = () => {
     return (
         <footer>
             <div className="wrapper">
-                <p className="pun">I took a poll on the weekend. <span>100% of people were angry that their tent collapsed!</span></p>
-                <p className="byline">Made @ <a href="junocollege.com">Juno College</a> by <a href="melpeto.com">Melanie Peto</a> </p>
+                <p className="pun">Did you hear about the voting app that was also a football player? <span>It played in the Superpoll!</span></p>
+                <p className="byline">Made @ <a href="https://www.junocollege.com">Juno College</a> by <a href="https://www.melpeto.com">Melanie Peto</a> </p>
             </div>
         </footer>
     )

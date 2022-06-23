@@ -30,52 +30,45 @@ const Creation = () => {
         event.preventDefault();
         const database = getDatabase(firebase);
         const dbRef = ref(database);
-        //push the values of the 3 inputs to the database, they become properties on an object
         const newPollRef = push(dbRef, { userQuestion, responseA, responseB, countA, countB });
         setPollNumber(newPollRef.key);
         setUserQuestion('');
         setResponseA('');
         setResponseB('');
-        //netlify won't deploy unless I use setCountA and setCountB
+        //following 2 lines have no real function but netlify won't deploy unless setCountA and setCountB are used in the code
         setCountA(countA); 
         setCountB(countB);  
         setIsDisplayed(true);
     }
 
     return (
-        <div className="creation">
+        <div className="creation tightWrapper">
 
-            <h2>Make a Poll</h2>
-            <p>Enter a question and two possible answers for your voters to choose, and click "Submit".</p>
+            <p className="pollInstructions">Enter a question and two possible answers for your voters to choose, and click "Submit".</p>
             <form action="submit" onSubmit={handleSubmit}>
 
                 <div className="inputBlock">
-                <label htmlFor="userQ">Enter your poll question here:</label>
+                <label htmlFor="userQ">Poll Question</label>
                 <input required type="text" id="userQ" value={userQuestion} onChange={handleQuestionChange} />
                 </div>
 
                 <div className="inputBlock">
-                <label htmlFor="resA">Enter one possible response here:</label>
+                <label htmlFor="resA">Response 1</label>
                 <input required type="text" id="resA" value={responseA} onChange={handleResAChange} />
                 </div>
 
                 <div className="inputBlock">
-                <label htmlFor="resB">Enter another possible response here:</label>
+                <label htmlFor="resB">Response 2</label>
                 <input required type="text" id="resB" value={responseB} onChange={handleResBChange} />
                 </div>
 
                 <button type="submit">Submit</button>
 
+                <div className={`seePoll ${isDisplayed ? "seeYours" : ""}`}>
+                    <Link to={`/${pollNumber}`}>See your new poll!</Link>
+                </div>
+
             </form>
-
-            {/* this link is hidden until user clicks Submit button */}
-            <div className={`seePoll regButton ${isDisplayed ? "seeYours" : ""}`}>
-                <Link to={`/${pollNumber}`}>See your new poll!</Link>
-            </div>
-
-            <div className="regButton">
-                <Link to="/allpolls">See all active polls</Link>
-            </div>
 
         </div>
     )

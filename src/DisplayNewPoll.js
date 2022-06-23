@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import firebase from './firebase.js';
 import { getDatabase, ref, onValue, set} from 'firebase/database';
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Result from "./Result.js";
 import Header from "./Header.js";
+import MakeAPollButton from "./MakeAPollButton.js";
 
 const DisplayNewPoll = () => {
 
@@ -29,7 +30,7 @@ const DisplayNewPoll = () => {
         onValue(countBRef, (response) => {
             setCountValueB(response.val())
         });
-    }, [dbRef, countARef, countBRef])
+    }, [])
 
     const handleVoteA = () => {
         const newCountValueA = (countValueA + 1);
@@ -47,29 +48,28 @@ const DisplayNewPoll = () => {
         <>
         <Header />
 
-        <h2 className="userQ">{poll.userQuestion}</h2>
+        <MakeAPollButton />
 
-        <section className="results wrapper">
+        <div className="resultsCard tightWrapper">
 
-            <div>
-                <button className="votingBtn" onClick={handleVoteA}>{poll.responseA}</button>
-                <Result count={countValueA}/>
-            </div>
+            <h2 className="userQ">{poll.userQuestion}</h2>
 
-            <div>
-                <button className="votingBtn" onClick={handleVoteB}>{poll.responseB}</button>
-                <Result count={countValueB}/>
-            </div>
+            <section className="results">
 
-        </section>
+                <div className="resultA">
+                    <button className="votingBtn" onClick={handleVoteA}>{poll.responseA}</button>
+                    <Result count={countValueA}/>
+                </div>
 
-        <div className="regButton">
-            <Link to="/">Make a new poll</Link>
+                <div className="resultB">
+                    <button className="votingBtn" onClick={handleVoteB}>{poll.responseB}</button>
+                    <Result count={countValueB}/>
+                </div>
+
+            </section>
+
         </div>
 
-        <div className="regButton">
-            <Link to="/allpolls">See all active polls</Link>
-        </div>
         </>
     )
 }
