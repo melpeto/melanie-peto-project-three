@@ -1,4 +1,4 @@
-/* Normalize / Setup */
+/* Normalize / Setup ////////////////////////////////////////*/
 
 html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figcaption,figure,main{display:block}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,html [type=button],[type=reset],[type=submit]{-webkit-appearance:button}button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}template{display:none}[hidden]{display:none}
 
@@ -6,7 +6,7 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}bo
 
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
 
-/* General Styles */
+/* General Styles ////////////////////////////////////////*/
 
 html {
   font-size: 125%;
@@ -29,30 +29,27 @@ html {
   margin: 0 auto;
 }
 
+
+h2 {
+  font-size: 1.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .regButton {
   font-size: 1rem;
   text-decoration: none;
-  background-color: orange;
+  background-color: #A6D5E0;
   margin: 40px auto;
   box-shadow: 2px 2px 2px lightgray;
   display: inline-block;
   position: absolute;
 }
 
-.seeAll {
-  /* top: 30px; */
-  margin: 0;
-  bottom: 0px;
-  left: 0px;
-}
-
-.makePoll {
-  position: static;
-}
-
 .regButton a {
-  color: inherit;
-  text-decoration: none;
   display: inline-block;
   padding: 15px;
 }
@@ -65,25 +62,13 @@ span {
   font-style: italic;
 }
 
-h2 {
-  font-size: 1.5rem;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
 .number {
-  /* scoreboardish font */
   font-family: 'Orbitron', sans-serif;
 }
 
 /* Header.js styles */
 
 header {
-  /* min-height: 200px; */
-  /* background-color: lightseagreen; */
   position: relative;
 }
 
@@ -92,15 +77,9 @@ h1 {
   padding-top: 25px;
 }
 
-
-/* Creation.js styles */
+/* Creation.js styles ////////////////////////////////////////*/
 
 .creation {
-  /* min-height: 60vh; */
-  /* display: flex; */
-  /* flex-direction: column;
-  justify-content: center;
-  align-items: center; */
   background-color: white;
   text-align: left;
 }
@@ -113,18 +92,12 @@ h1 {
 form {
   display: flex;
   flex-direction: column;
-  /* width: 75%; */
-  /* justify-content: center; */
   align-items: flex-start;
 }
 
 .inputBlock {
   display: flex;
   flex-direction: column;
-  /* justify-content: flex-start; */
-  /* width: 70%; */
-  /* margin-top: 40px;
-  margin-bottom: 40px; */
   width: 100%;
   margin-bottom: 40px;
   padding-left: 25px;
@@ -137,13 +110,12 @@ label {
 
 input {
   line-height: 2;
-  /* width: 80%; */
 }
 
 button[type="submit"],
 .seePoll {
   padding: 15px;
-  background-color: rgb(32, 178, 170, 40%);
+  background-color: rgb(32, 178, 170, 60%);
   margin-bottom: 40px;
   margin-left: 25px;
 }
@@ -152,17 +124,14 @@ button[type="submit"],
   display: none;
 }
 
+/* seeYours must remain after .seePoll in cascade to display seePoll button after form submission */
 .seeYours {
   display: inline-block;
   border: 2px solid yellow;
   box-shadow: 2px 2px 2px lightgray;
 }
 
-.allPolls {
-  list-style: none;
-}
-
-/* DisplayNewPoll.js styles */
+/* DisplayNewPoll.js styles ////////////////////////////////////////*/
 
 .resultsCard {
   border: 1px solid black;
@@ -173,13 +142,6 @@ button[type="submit"],
   width: 100%;
   padding-top: 30px;
   padding-bottom: 30px;
-  /* background-image: linear-gradient(
-    to right,
-    rgb(255, 234, 0) 0%,
-    rgb(255, 234, 0) 50%,
-    darkorchid 50%,
-    darkorchid 100%
-  ); */
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -198,6 +160,7 @@ button[type="submit"],
   background-color: rgb(255, 255, 255, 0%);
   padding: 30px;
   margin-bottom: 30px;
+  box-shadow: 2px 2px 2px lightgrey;
 }
 
 .number {
@@ -205,14 +168,20 @@ button[type="submit"],
   margin: 0;
 }
 .resultA .number {
-  background-color: rgb(255, 234, 0);
+  background-color: #9C7A97;
 }
 
 .resultB .number {
-  background-color: darkorchid;
+  background-color: #8BE8CB;
 }
 
-/* AllPolls.js */
+/* AllPolls.js ////////////////////////////////////////*/
+
+.allPolls {
+  list-style: none;
+  display: flex;
+  flex-direction: column-reverse;
+}
 
 .activePoll {
   list-style-type: none;
@@ -222,6 +191,7 @@ button[type="submit"],
 
 h3 {
   margin: 0;
+  padding: 30px;
   font-size: 1.8rem;
   text-transform: capitalize;
   background-color: aquamarine;
@@ -240,8 +210,19 @@ h3 {
 }
 
 
+/* SeeAllPolls.js styles //////////////////////////////////////// */
 
+.seeAll {
+  margin: 0;
+  top: 15px;
+  left: 0px;
+}
 
+/* MakeAPollButton.js styles ////////////////////////////////////////*/
+
+.makePoll {
+  position: static;
+}
 
 /* Footer.js styles */
 

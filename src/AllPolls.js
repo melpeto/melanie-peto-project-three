@@ -41,19 +41,16 @@ const AllPolls = () => {
         <ul className="allPolls">
             {list.map( (singlePoll, index) => {
                 return (
-
-                    //I need something better than {index} for the key for each li in the return(). want to access the random key given by firebase
-                    //also want to click on each li and be taken to a DisplayPoll page so that the user can vote on that poll
                     
                     <li key={singlePoll.key} className="activePoll">
                         <Link to={`/${singlePoll.key}`}>
                         <h3>{singlePoll.userQuestion}</h3>
                         <div className="activePollParent">
-                            <div className="res">
+                            <div className="res resA">
                                 <p>{singlePoll.responseA}</p>
                                 <p className="number">{singlePoll.countA}</p>
                             </div>
-                            <div className="res">
+                            <div className="res resB">
                                 <p>{singlePoll.responseB}</p>
                                 <p className="number">{singlePoll.countB}</p>
                             </div>
@@ -65,10 +62,6 @@ const AllPolls = () => {
                 )
             })} 
         </ul>
-
-        {/* <div className="regButton">
-            <Link to="/">Make a new poll</Link>
-        </div> */}
 
         </div>
 

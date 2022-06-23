@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import firebase from './firebase.js';
 import { getDatabase, ref, onValue, set} from 'firebase/database';
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Result from "./Result.js";
 import Header from "./Header.js";
 import MakeAPollButton from "./MakeAPollButton.js";
-// import SeeAllPolls from "./SeeAllPolls.js";
 
 const DisplayNewPoll = () => {
 
@@ -71,17 +70,6 @@ const DisplayNewPoll = () => {
 
         </div>
 
-        {/* <MakeAPollButton />
-
-        <SeeAllPolls /> */}
-
-        {/* <div className="regButton">
-            <Link to="/">Make a new poll</Link>
-        </div> */}
-
-        {/* <div className="regButton">
-            <Link to="/allpolls">See all active polls</Link>
-        </div> */}
         </>
     )
 }
