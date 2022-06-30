@@ -1,13 +1,11 @@
-import SeeAllPolls from "./SeeAllPolls";
-
 const Header = () => {
     return (
-        <header className='wrapper'>
+        <header>
 
-            <SeeAllPolls />
-
-            <h1>Poll App</h1>
+            <div className="tightWrapper">
+            <h1>Custom Poll Creator</h1>
             <p className="pun">Where do reindeer vote? <span>The North Poll!</span></p>
+            </div>
 
         </header>
     )

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import firebase from './firebase.js';
 import {getDatabase, ref, push} from  'firebase/database';
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
+import SeeAllPollsButton from "./SeeAllPollsButton.js";
 
 const Creation = () => {
 
@@ -36,12 +37,17 @@ const Creation = () => {
         setResponseA('');
         setResponseB('');
         //following 2 lines have no real function but netlify won't deploy unless setCountA and setCountB are used in the code
-        setCountA(countA); 
-        setCountB(countB);  
+        setCountA(countA);
+        setCountB(countB);
         setIsDisplayed(true);
+        // navigate(`/${pollNumber}`);
     }
 
     return (
+
+        <>
+        {/* <SeeAllPolls /> */}
+        
         <div className="creation tightWrapper">
 
             <p className="pollInstructions">Enter a question and two possible answers for your voters to choose, and click "Submit".</p>
@@ -68,9 +74,16 @@ const Creation = () => {
                     <Link to={`/${pollNumber}`}>See your new poll!</Link>
                 </div>
 
+                {/* <button type="submit">See Your New Poll!</button> */}
+
+
+
             </form>
 
         </div>
+
+        <SeeAllPollsButton />
+        </>
     )
 }
 

@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import Result from "./Result.js";
 import Header from "./Header.js";
 import MakeAPollButton from "./MakeAPollButton.js";
+import SeeAllPollsButton from "./SeeAllPollsButton.js";
 
 const DisplayNewPoll = () => {
 
@@ -50,13 +51,22 @@ const DisplayNewPoll = () => {
 
     return (
         <>
+
         <Header />
 
-        <MakeAPollButton />
+        <div className="navButtons tightWrapper">
+
+            <MakeAPollButton />
+
+            <SeeAllPollsButton />
+
+        </div>
+
+        <h2 className="tightWrapper votingInstruction">Click a response to vote</h2>
 
         <div className="resultsCard tightWrapper">
 
-            <h2 className="userQ">{poll.userQuestion}</h2>
+            <h3 className="userQ">{poll.userQuestion}</h3>
 
             <section className="results">
 

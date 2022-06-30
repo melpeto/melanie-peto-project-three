@@ -6,15 +6,20 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}bo
 
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
 
-/* General Styles ////////////////////////////////////////*/
+/* //////////////////////////////////////// General Styles //////////////////////////////////////// */
 
 html {
   font-size: 125%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
   background-color: rgb(240, 240, 240);
 }
 
 .App {
   text-align: center;
+  background-color: rgba(55, 226, 213, 0.6);
 }
 
 .wrapper {
@@ -29,24 +34,34 @@ html {
   margin: 0 auto;
 }
 
-
-h2 {
-  font-size: 1.5rem;
-}
-
 a {
   text-decoration: none;
   color: inherit;
 }
 
+h2 {
+  font-size: 1.5rem;
+  margin-top: 50px;
+  background-color: #F65ABB;
+  padding: 15px;
+}
+
+h3 {
+  margin: 0;
+  padding: 30px;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  background-color: #FFE064;
+}
+
 .regButton {
-  font-size: 1rem;
-  text-decoration: none;
-  background-color: #A6D5E0;
-  margin: 40px auto;
-  box-shadow: 2px 2px 2px lightgray;
   display: inline-block;
-  position: absolute;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: white;
+  background-color: #590696;
+  margin: 10px auto;
+  box-shadow: 2px 2px 2px lightgray;
 }
 
 .regButton a {
@@ -55,29 +70,36 @@ a {
 }
 
 .pun {
+  font-weight: bolder;
   font-size: 0.8rem;
+  margin-top: 0;
 }
 
 span {
   font-style: italic;
 }
 
-.number {
-  font-family: 'Orbitron', sans-serif;
-}
-
-/* Header.js styles */
+/* //////////////////////////////////////// Header.js styles //////////////////////////////////////// */
 
 header {
   position: relative;
+  background-image: url(./assets/bitmap4.png);
+  background-size: contain;
 }
 
 h1 {
+  font-size: 3rem;
   margin-top: 0;
+  margin-bottom: 15px;
   padding-top: 25px;
+  font-family: 'Orbitron', sans-serif;
 }
 
-/* Creation.js styles ////////////////////////////////////////*/
+header .pun {
+  background-color: rgb(255, 255, 255, 0.5);
+}
+
+/* //////////////////////////////////////// Creation.js styles //////////////////////////////////////// */
 
 .creation {
   background-color: white;
@@ -85,7 +107,7 @@ h1 {
 }
 
 .pollInstructions {
-  margin: 40px 25px;
+  margin: 0 25px 30px 25px;
   padding-top: 40px;
 }
 
@@ -114,118 +136,150 @@ input {
 
 button[type="submit"],
 .seePoll {
+  color: white;
   padding: 15px;
-  background-color: rgb(32, 178, 170, 60%);
+  background-color: #A50969;
   margin-bottom: 40px;
   margin-left: 25px;
 }
 
 .seePoll {
   display: none;
-}
-
-/* seeYours must remain after .seePoll in cascade to display seePoll button after form submission */
-.seeYours {
-  display: inline-block;
-  border: 2px solid yellow;
+  border: 3px solid #FBCB0A;
   box-shadow: 2px 2px 2px lightgray;
 }
 
-/* DisplayNewPoll.js styles ////////////////////////////////////////*/
+/* NOTE .seeYours must remain AFTER .seePoll in cascade in order to properly to display the seePoll button after form submission */
+.seeYours {
+  display: inline-block;
+}
+
+/* //////////////////////////////////////// DisplayNewPoll.js styles ////////////////////////////////////////*/
+
+.navButtons {
+  display: flex;
+  margin-bottom: 50px;
+  justify-content: space-evenly;
+}
+
+h2.votingInstruction {
+  background-color: rgb(91, 170, 255);
+}
 
 .resultsCard {
-  border: 1px solid black;
-  margin-top: 50px;
+  border: 5px solid rgb(91, 170, 255);
+  margin-top: 30px;
+  background-color: white;
+}
+
+.userQ {
+    margin-top: 0;
+    background-color: #b0fb7a;
 }
 
 .results {
   width: 100%;
-  padding-top: 30px;
   padding-bottom: 30px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-end;
   font-size: 4rem;
-  border: 1px solid black;
 }
 
 .results div {
+  max-width: calc(50% - 60px);
+  min-width: 200px;
   width: 100%;
   margin: 15px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.results .number {
+  border: 1px solid black;
 }
 
 .votingBtn {
-  width: 100%;
   font-size: 1.5rem;
-  background-color: rgb(255, 255, 255, 0%);
+  text-transform: uppercase;
+  background-color: rgb(91, 170, 255, 30%);
+  width: 100%;
+  min-height: 200px;
   padding: 30px;
   margin-bottom: 30px;
-  box-shadow: 2px 2px 2px lightgrey;
+  box-shadow: 5px 5px 1px lightgrey;
+  cursor: pointer;
 }
 
-.number {
-  padding: 30px;
-  margin: 0;
-}
-.resultA .number {
-  background-color: #9C7A97;
-}
-
-.resultB .number {
-  background-color: #8BE8CB;
-}
-
-/* AllPolls.js ////////////////////////////////////////*/
+/* //////////////////////////////////////// AllPolls.js ////////////////////////////////////////*/
 
 .allPolls {
   list-style: none;
   display: flex;
   flex-direction: column-reverse;
+  padding: 0;
 }
 
 .activePoll {
-  list-style-type: none;
-  border: 2px solid black;
-  margin: 50px;
-}
-
-h3 {
-  margin: 0;
-  padding: 30px;
-  font-size: 1.8rem;
-  text-transform: capitalize;
-  background-color: aquamarine;
-
+  border: 5px solid #F65ABB;
+  margin: 50px 0;
 }
 
 .activePollParent {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  align-items:flex-end;
+  background-color: white;
+}
+
+.res {
+  width: 50%;
 }
 
 .res p {
   font-size: 1.6rem;
   text-transform: uppercase;
+  min-height: 100px;
+  padding: 15px;
+}
+
+p.number {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 6rem;
+  padding: 30px;
+  margin: 0;
+}
+
+.res p.number {
+  border-top: 1px solid #F65ABB;
+}
+
+.resA {
+  border-right: 1px solid #F65ABB;
 }
 
 
-/* SeeAllPolls.js styles //////////////////////////////////////// */
+/* ////////////////////////////////////////  SeeAllPollsButton.js styles //////////////////////////////////////// */
 
 .seeAll {
-  margin: 0;
-  top: 15px;
-  left: 0px;
+  margin-top: 20px;
 }
 
-/* MakeAPollButton.js styles ////////////////////////////////////////*/
+/* ////////////////////////////////////////  MakeAPollButton.js styles ////////////////////////////////////////*/
 
 .makePoll {
   position: static;
+  margin-top: 20px;
 }
 
-/* Footer.js styles */
+/* //////////////////////////////////////// Footer.js styles //////////////////////////////////////// */
+
+footer {
+  margin-top: 200px;
+}
 
 .byline {
   margin-bottom: 0;
+  padding-bottom: 30px;
 }
