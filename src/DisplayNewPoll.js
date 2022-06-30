@@ -62,11 +62,11 @@ const DisplayNewPoll = () => {
 
         </div>
 
-        <h2 className="tightWrapper votingInstruction">Click a response to vote</h2>
-
         <div className="resultsCard tightWrapper">
 
             <h3 className="userQ">{poll.userQuestion}</h3>
+
+            <p>~ Click a response to vote ~ </p>
 
             <section className="results">
 

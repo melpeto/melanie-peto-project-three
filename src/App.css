@@ -134,24 +134,12 @@ input {
   line-height: 2;
 }
 
-button[type="submit"],
-.seePoll {
+button[type="submit"] {
   color: white;
   padding: 15px;
   background-color: #A50969;
   margin-bottom: 40px;
   margin-left: 25px;
-}
-
-.seePoll {
-  display: none;
-  border: 3px solid #FBCB0A;
-  box-shadow: 2px 2px 2px lightgray;
-}
-
-/* NOTE .seeYours must remain AFTER .seePoll in cascade in order to properly to display the seePoll button after form submission */
-.seeYours {
-  display: inline-block;
 }
 
 /* //////////////////////////////////////// DisplayNewPoll.js styles ////////////////////////////////////////*/
@@ -163,7 +151,7 @@ button[type="submit"],
 }
 
 h2.votingInstruction {
-  background-color: rgb(91, 170, 255);
+  background-color:unset
 }
 
 .resultsCard {
@@ -222,19 +210,31 @@ h2.votingInstruction {
   padding: 0;
 }
 
+ul.allPolls:last-child {
+  margin-top: 20px;
+}
+
 .activePoll {
   border: 5px solid #F65ABB;
   margin: 50px 0;
 }
 
+.activePoll h3 {
+  border-right: 1px solid #F65ABB;
+  border-left: 1px solid #F65ABB;
+}
+
 .activePollParent {
   display: flex;
-  align-items:flex-end;
   background-color: white;
 }
 
 .res {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 50%;
+  border: 1px solid #F65ABB;
 }
 
 .res p {
@@ -249,16 +249,12 @@ p.number {
   font-size: 6rem;
   padding: 30px;
   margin: 0;
+  max-height: 200px;
 }
 
 .res p.number {
-  border-top: 1px solid #F65ABB;
+  border-top: 2px solid #F65ABB;
 }
-
-.resA {
-  border-right: 1px solid #F65ABB;
-}
-
 
 /* ////////////////////////////////////////  SeeAllPollsButton.js styles //////////////////////////////////////// */
 

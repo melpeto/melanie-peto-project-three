@@ -35,11 +35,10 @@ const AllPolls = () => {
 
         <MakeAPollButton />
 
-        {/* <h2>All Active Polls</h2> */}
         <h2>Click on a poll below to enter and vote!</h2>
 
         <ul className="allPolls">
-            {list.map( (singlePoll, index) => {
+            {list.map( (singlePoll) => {
                 return (
                     
                     <li key={singlePoll.key} className="activePoll">
@@ -58,7 +57,6 @@ const AllPolls = () => {
                         </Link>
                     </li>
                     
-
                 )
             })} 
         </ul>

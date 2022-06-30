@@ -1,7 +1,7 @@
 import { useState } from "react";
 import firebase from './firebase.js';
 import {getDatabase, ref, push} from  'firebase/database';
-import {Link} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import SeeAllPollsButton from "./SeeAllPollsButton.js";
 
 const Creation = () => {
@@ -11,9 +11,8 @@ const Creation = () => {
     const [responseB, setResponseB] = useState('');
     const [countA, setCountA] = useState(0);
     const [countB, setCountB] = useState(0);
-    const [pollNumber, setPollNumber] = useState('');
 
-    const [isDisplayed, setIsDisplayed] = useState(false);
+    const navigate = useNavigate();
 
     const handleQuestionChange = (event) => {
         setUserQuestion(event.target.value);
@@ -32,21 +31,18 @@ const Creation = () => {
         const database = getDatabase(firebase);
         const dbRef = ref(database);
         const newPollRef = push(dbRef, { userQuestion, responseA, responseB, countA, countB });
-        setPollNumber(newPollRef.key);
         setUserQuestion('');
         setResponseA('');
         setResponseB('');
-        //following 2 lines have no real function but netlify won't deploy unless setCountA and setCountB are used in the code
+        navigate(`/${newPollRef.key}`);
+        //following 2 lines have no explicit functionality but netlify won't deploy unless setCountA and setCountB are used in the code. Using countA and countB in this component as part of the .push so that they become key-value pairs in firebase
         setCountA(countA);
         setCountB(countB);
-        setIsDisplayed(true);
-        // navigate(`/${pollNumber}`);
     }
 
     return (
 
         <>
-        {/* <SeeAllPolls /> */}
         
         <div className="creation tightWrapper">
 
@@ -68,15 +64,7 @@ const Creation = () => {
                 <input required type="text" id="resB" value={responseB} onChange={handleResBChange} />
                 </div>
 
-                <button type="submit">Submit</button>
-
-                <div className={`seePoll ${isDisplayed ? "seeYours" : ""}`}>
-                    <Link to={`/${pollNumber}`}>See your new poll!</Link>
-                </div>
-
-                {/* <button type="submit">See Your New Poll!</button> */}
-
-
+                <button type="submit">See Your New Poll</button>
 
             </form>
 
