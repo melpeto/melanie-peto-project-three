@@ -31,7 +31,7 @@ const DisplayNewPoll = () => {
             setCountValueB(response.val())
         });
     }, [pollNumber])
-    // had to include dependency of pollNumber in order to make netlify deployment work
+    // Note: had to include dependency of pollNumber in order to make netlify deployment work
 
     const handleVoteA = () => {
         const newCountValueA = (countValueA + 1);

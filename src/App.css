@@ -177,7 +177,7 @@ h2.votingInstruction {
 
 .results div {
   max-width: calc(50% - 60px);
-  min-width: 200px;
+  min-width: 275px;
   width: 100%;
   margin: 15px 30px;
   display: flex;
@@ -192,10 +192,11 @@ h2.votingInstruction {
 .votingBtn {
   font-size: 1.5rem;
   text-transform: uppercase;
+  text-align: center;
   background-color: rgb(91, 170, 255, 30%);
   width: 100%;
   min-height: 200px;
-  padding: 30px;
+  padding: 20px;
   margin-bottom: 30px;
   box-shadow: 5px 5px 1px lightgrey;
   cursor: pointer;
@@ -278,4 +279,70 @@ footer {
 .byline {
   margin-bottom: 0;
   padding-bottom: 30px;
+}
+
+/* ////////////////////////////////////////  media queries ////////////////////////////////////////*/
+
+@media (max-width: 940px) {
+
+  .navButtons {
+    margin-bottom: 20px;
+    flex-direction: column;
+  }
+
+  .tightWrapper {
+    width: 65%;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .results div {
+    min-width: 200px;
+  }
+
+  .votingBtn {
+    font-size: 1.2rem;
+  }
+  .results p.number {
+    font-size: 4rem;
+  }
+  .activePoll {
+      margin: 25px 0;
+  }
+
+  .activePoll h3 {
+    font-size: 1.4rem;
+  }
+
+  .activePoll p {
+    font-size: 1.3rem;
+  }
+
+  .activePoll p.number {
+    font-size: 4.5rem;
+  }
+
+}
+
+@media (max-width: 480px) {
+  
+  .tightWrapper {
+    width: 80%;
+    overflow: hidden;
+  }
+
+  .activePoll h3 {
+    font-size: 1.2rem;
+  }
+
+  .activePoll p {
+    font-size: 1rem;
+  }
+  
+  .activePoll p.number {
+    font-size: 3rem;
+  }
+
 }
