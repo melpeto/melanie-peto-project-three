@@ -15,6 +15,9 @@ const DisplayNewPoll = () => {
 
     const { pollNumber } = useParams();
 
+    // const navigate = useNavigate;  
+    //want to try and make a delete button that then takes you back to the allPolls page and also gives a message saying 'poll deleted' or something. right now it just deletes from database
+
     useEffect(() => {
         const database = getDatabase(firebase);
         const dbRef = ref(database, `/${pollNumber}`);
@@ -48,6 +51,12 @@ const DisplayNewPoll = () => {
         setCountValueB(newCountValueB);
         set(countBRef, newCountValueB);
     }
+
+    // const handleDeletePoll = () => {
+    //     const database = getDatabase(firebase);
+    //     const dbRef = ref(database, `/${pollNumber}`);
+    //     remove(dbRef)
+    // }
 
     return (
         <>
@@ -83,6 +92,8 @@ const DisplayNewPoll = () => {
             </section>
 
         </div>
+
+        {/* <button onClick={ () => {handleDeletePoll(poll)}}>Delete Poll</button> */}
 
         </>
     )

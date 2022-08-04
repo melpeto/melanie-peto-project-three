@@ -35,9 +35,11 @@ const Creation = () => {
         setResponseA('');
         setResponseB('');
         navigate(`/${newPollRef.key}`);
-        //following 2 lines have no explicit functionality but netlify won't deploy unless setCountA and setCountB are used in the code. Using countA and countB in this component as part of the .push so that they become key-value pairs in firebase
+        //following 2 lines have no explicit functionality but netlify won't deploy unless setCountA and setCountB are used in the code. I'm using countA and countB in this component as part of the .push so that they become key-value pairs in firebase.
+        // TODO: somehow take the countA/countB out of this component and have them push() to the object within the DisplayNewPolls component
         setCountA(countA);
         setCountB(countB);
+        // * I know in a professional setting these comments should be removed before pushing to production :) - Mel
     }
 
     return (

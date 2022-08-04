@@ -5,6 +5,7 @@ import Creation from './Creation';
 import DisplayNewPoll from './DisplayNewPoll';
 import AllPolls from './AllPolls';
 import Footer from './Footer';
+// import ErrorPage from './ErrorPage';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           } />
           <Route path="/:pollNumber" element={<DisplayNewPoll/>}/>
           <Route path="/allpolls" element={<AllPolls />}/>
+        {/* <Route path="*" element={<ErrorPage />} /> */}
         </Routes>
 
         <Footer />
